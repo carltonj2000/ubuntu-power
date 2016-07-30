@@ -2,7 +2,7 @@ DOCKER_IMG = ubuntu-power
 DOCKER_INST = ubuntu-power1
 
 GO = /home/carltonj2000/cj/configsNscripts/go
-HTML = /home/carltonj2000/cj/cjSourceControlled/carltonj2000/home-server/build
+HTML = /home/carltonj2000/cj/cjSourceControlled/carltonj2000/home-server/build/power
 
 build:
 	docker build -t $(DOCKER_IMG) .
@@ -16,10 +16,8 @@ run:
 clean:
 	docker rm -f $(shell docker ps -a | grep $(DOCKER_INST) | cut -b 1-12)
 
-stopnrun: stopnrun1
+rerun: stopnrun1 run
 
-stopnrun1: stopnrun2 run
+stopnrun1: stopnrun2 build
 
-stopnrun2: stopnrun3 build
-
-stopnrun3: clean
+stopnrun2: clean

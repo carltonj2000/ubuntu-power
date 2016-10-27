@@ -13,4 +13,4 @@ RUN cat bashrc >> .bashrc
 #ENTRYPOINT exec /bin/bash # for debug
 ENTRYPOINT exec ${GO}/bin/cjWebserverPower
 
-EXPOSE 8111
+EXPOSE 80
